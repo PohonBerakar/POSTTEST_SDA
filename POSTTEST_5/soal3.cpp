@@ -5,7 +5,6 @@ struct Node {
     int data;
     Node* left;
     Node* right;
-
     Node(int val) {
         data = val;
         left = nullptr;
@@ -26,12 +25,15 @@ Node* insert(Node* root, int val) {
 }
 
 int findMaxValue(Node* root) {
-    if (root == nullptr) {
-        return -1;
-    }
+    // Jika tree kosong return -1
+    if (root == nullptr) return -1;
+
+    // cari anak ke kanan sampe habis
     while (root->right != nullptr) {
         root = root->right;
     }
+
+    //node kanan adalah nilai tertinggi atau maksimunnm
     return root->data;
 }
 

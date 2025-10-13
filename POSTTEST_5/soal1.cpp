@@ -5,7 +5,6 @@ struct Node {
     int data;
     Node* left;
     Node* right;
-
     Node(int val) {
         data = val;
         left = nullptr;
@@ -26,9 +25,10 @@ Node* insert(Node* root, int val) {
 }
 
 int countNodes(Node* root) {
-    if (root == nullptr) {
-        return 0;
-    }
+    // Jika tree kosong return
+    if (root == nullptr) return 0;
+
+    // Hitung node saat ini ditambah node kiri dan kanan
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 

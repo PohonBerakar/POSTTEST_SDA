@@ -5,7 +5,6 @@ struct Node {
     int data;
     Node* left;
     Node* right;
-
     Node(int val) {
         data = val;
         left = nullptr;
@@ -26,11 +25,16 @@ Node* insert(Node* root, int val) {
 }
 
 void postOrderTraversal(Node* root) {
-    if (root == nullptr) {
-        return;
-    }
+    // Jika node kosong reutunr
+    if (root == nullptr) return;
+
+    // Telusuri subtree kiri
     postOrderTraversal(root->left);
+
+    // lalu elusuri kanan
     postOrderTraversal(root->right);
+
+    // Cetak data node setelah kiri dan kanan
     cout << root->data << " ";
 }
 

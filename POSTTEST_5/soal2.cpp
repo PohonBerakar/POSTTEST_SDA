@@ -5,7 +5,6 @@ struct Node {
     int data;
     Node* left;
     Node* right;
-
     Node(int val) {
         data = val;
         left = nullptr;
@@ -26,12 +25,15 @@ Node* insert(Node* root, int val) {
 }
 
 int findMinValue(Node* root) {
-    if (root == nullptr) {
-        return -1;
-    }
+    // Jika tree kosong return -1 untuk tanda
+    if (root == nullptr) return -1;
+
+    // cari anak ke kiri terus sampe habis
     while (root->left != nullptr) {
         root = root->left;
     }
+
+    // node paling kiri itu nilai paling kecil / minimum
     return root->data;
 }
 
